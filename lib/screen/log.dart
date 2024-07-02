@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food/screen/menu.dart';
+import 'package:food/screen/signup.dart';
+import 'package:food/text/tx.dart';
+
+import '../widget/button.dart';
+import 'intro.dart';
 
 class Log extends StatefulWidget {
   const Log({super.key});
@@ -19,14 +25,14 @@ class _LogState extends State<Log> {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.only(
-          top: 10,
+          top: 52,
         ),
         child: Container(
           child: Center(
               child: Image.asset(
             "img/Logo.jpg",
-            width: 200,
-            height: 170,
+            width: 121,
+            height: 121,
           )),
         ),
       ),
@@ -47,16 +53,8 @@ class _LogState extends State<Log> {
               color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.only(left: 25, top: 5, right: 25),
-        child: TextField(
-          decoration: InputDecoration(
-              hintText: "placeholder",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-              )),
-        ),
-      ),
+
+            Textf(name:"Placeholder",),
       Padding(
         padding: const EdgeInsets.only(left: 25, top: 15),
         child: Text(
@@ -65,72 +63,12 @@ class _LogState extends State<Log> {
               color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.only(left: 25, top: 5, right: 25),
-        child: TextField(
-          obscureText: secure,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-            hintText: "password",
-            suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  secure = !secure;
-                });
-              },
-              icon: Icon(secure ? Icons.visibility : Icons.visibility_off,
-                  color: secure ? Colors.grey : Colors.indigo),
-            ),
-          ),
-        ),
-      ),
-      SizedBox(
-        height: 18,
-      ),
-      // Padding(
-      //   padding: const EdgeInsets.only(left: 15, top: 5),
-      //   child: Row(
-      //     children: [
-      //       Transform.scale(
-      //         scale: 1.8,
-      //         child: Checkbox(
-      //           value: isChecked,
-      //           onChanged: (bool? newValue) {
-      //             setState(() {
-      //               isChecked = newValue ?? false;
-      //             });
-      //           },
-      //         ),
-      //       ),
-      //
-      //       Text(
-      //         "Remember me",
-      //         style: TextStyle(color: Colors.black, fontSize: 14,fontWeight: FontWeight.w400),
-      //       )
-      //     ],
-      //   ),
-      // ),
-      Padding(
-        padding: const EdgeInsets.only(left: 24, top: 2, right: 24),
-        child: Container(
-          height: 54,
-          width: double.maxFinite,
-          decoration: BoxDecoration(
-              color: Colors.indigo,
-              borderRadius: BorderRadius.all(Radius.circular(57))),
-          child: Center(
-            child: Text(
-              "SIGN IN",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
-            ),
-          ),
-        ),
-      ),
+     Textf(name: "password",ob: true, ),
+      SizedBox(height: 18,),
+                  Button(name: 'Sign in',child: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
+
+                  },),
       Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 15),
@@ -146,7 +84,11 @@ class _LogState extends State<Log> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(width: 115, height: 1, color: Colors.grey,),
+            Container(
+              width: 115,
+              height: 1,
+              color: Colors.grey,
+            ),
             SizedBox(
               width: 6,
             ),
@@ -179,8 +121,8 @@ class _LogState extends State<Log> {
               children: [
                 Image.asset(
                   "img/10464408.jpg",
-                  height: 30,
-                  width: 30,
+                  height: 40,
+                  width: 40,
                   fit: BoxFit.cover,
                 ),
                 Text(
@@ -207,11 +149,12 @@ class _LogState extends State<Log> {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.asset(
                     "img/google.jpg",
-                    height: 20,
-                    width: 20,
+                    height: 22,
+                    width: 22,
                     fit: BoxFit.cover,
                   ),
                   Text(
@@ -225,18 +168,27 @@ class _LogState extends State<Log> {
               )),
         ),
       ]),
-      SizedBox(
-        height: 20,
-      ),
-      Row(mainAxisAlignment: MainAxisAlignment.center,
+      SizedBox(height: 20,),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "Don't have an account?",
-            style: TextStyle(color: Colors.black, fontSize: 14,fontWeight: FontWeight.w400),
+            style: TextStyle(
+                color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
           ),
-          Text(
-            "Sign up",
-            style: TextStyle(color: Colors.blue, fontSize: 14,fontWeight: FontWeight.w400),
+          Padding(
+            padding: const EdgeInsets.only(left: 6),
+            child:GestureDetector(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Signup()));
+
+            },
+            child: Text(
+              "Sign up",
+              style: TextStyle(
+                  color: Colors.blue, fontSize: 14, fontWeight: FontWeight.w500),
+            ),
+          )
           )
         ],
       )

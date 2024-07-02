@@ -14,39 +14,6 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* body: Stack(
-        children: [
-          Container(width: double.maxFinite,
-            child: Image.asset(
-              "img/ggg.jpg",
-              fit: BoxFit.fill,
-            ),
-          ),
-          Column(
-            children: [
-              Text("jsjdha"),
-              Padding(
-                padding: const EdgeInsets.all(25),
-                child: Container(
-                  width: double.maxFinite,
-                  height: 50,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.all(Radius.circular(40))),
-                  child: Center(
-                      child: Text(
-                    "NEXT",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal),
-                  )),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),*/
 
       body: Stack(
           //fit: StackFit.expand,
